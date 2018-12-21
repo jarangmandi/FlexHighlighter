@@ -73,7 +73,8 @@ namespace Flex_Highlighter
                 {
                     int numberOfBrackets = 1;
                     index++;
-                    while (index < length && text[index] != '\n')
+                    int lastIndex = index;
+                    while (index < length && text[index] != '\n' && text[index] != '\t' && numberOfBrackets > 0)
                     {
                         if (text[index] == '(' && index - 1 >= 0 && text[index - 1] != '\\')
                         {
@@ -81,15 +82,21 @@ namespace Flex_Highlighter
                         }
                         else if (text[index] == ')' && index - 1 >= 0 && text[index - 1] != '\\')
                         {
-                            numberOfBrackets--;
-                            if (numberOfBrackets >= 0)
+                            if (--numberOfBrackets == 0)
                             {
-                                token.Length = ++index - token.StartIndex;
+                                token.Length = index + 1 - token.StartIndex;
                                 token.TokenId = Classes.RegexGroup;
                                 return token;
                             }
+                            lastIndex = index + 1;
                         }
                         index++;
+                    }
+                    if (numberOfBrackets > 0)
+                    {
+                        token.Length = lastIndex - token.StartIndex;
+                        token.TokenId = Classes.RegexGroup;
+                        return token;
                     }
                     index = startIndex;
                 }
@@ -127,13 +134,13 @@ namespace Flex_Highlighter
                 }
             }
 
-            if (index + 1 < length && text[index] == '/' && text[index + 1] == '/')
+            if (index + 1 < length && text[index] == '/' && text[index + 1] == '/' && language != Languages.Regex && language != Languages.Flex)
             {
                 token.TokenId = Classes.Comment;
                 return token;
             }
 
-            if ((index + 1 < length && text[index] == '/' && text[index + 1] == '*') || token.State == (int)Cases.MultiLineComment)
+            if (((index + 1 < length && text[index] == '/' && text[index + 1] == '*') || token.State == (int)Cases.MultiLineComment) && language != Languages.Regex && language != Languages.Flex)
             {
                 //if (index + 1 < length && text[index] == '/' && text[index + 1] == '*')
                 {

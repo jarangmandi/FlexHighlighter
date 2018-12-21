@@ -939,10 +939,10 @@ namespace Flex_Highlighter
             if (token.TokenId == FlexTokenizer.Classes.RegexGroup)
             {
                 IClassificationType EscapedCharacterInGroup;
-                if (registry.GetClassificationType("Escaped Character in Regex Group") != null)
-                    EscapedCharacterInGroup = registry.GetClassificationType("Escaped Character in Regex Group");
+                if (registry.GetClassificationType("Regex Escaped Character in Regex Group") != null)
+                    EscapedCharacterInGroup = registry.GetClassificationType("Regex Escaped Character in Regex Group");
                 else
-                    EscapedCharacterInGroup = registry.CreateClassificationType("Escaped Character in Regex Group", new IClassificationType[0]);
+                    EscapedCharacterInGroup = registry.CreateClassificationType("Regex Escaped Character in Regex Group", new IClassificationType[0]);
                 IClassificationType SpecialCharacterInGroup;
                 if (registry.GetClassificationType("Regex Special Character in Group") != null)
                     SpecialCharacterInGroup = registry.GetClassificationType("Regex Special Character in Group");
@@ -1080,10 +1080,10 @@ namespace Flex_Highlighter
             else
             {
                 IClassificationType EscapedCharacterInSet;
-                if (registry.GetClassificationType("Escaped Character in Character Set") != null)
-                    EscapedCharacterInSet = registry.GetClassificationType("Escaped Character in Character Set");
+                if (registry.GetClassificationType("Regex Escaped Character in Character Set") != null)
+                    EscapedCharacterInSet = registry.GetClassificationType("Regex Escaped Character in Character Set");
                 else
-                    EscapedCharacterInSet = registry.CreateClassificationType("Escaped Character in Character Set", new IClassificationType[0]);
+                    EscapedCharacterInSet = registry.CreateClassificationType("Regex Escaped Character in Character Set", new IClassificationType[0]);
                 IClassificationType RegexDigitsInSet;
                 if (registry.GetClassificationType("Regex Digits in Character Set") != null)
                     RegexDigitsInSet = registry.GetClassificationType("Regex Digits in Character Set");
