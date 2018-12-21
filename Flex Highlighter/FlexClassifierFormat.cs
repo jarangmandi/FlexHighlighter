@@ -142,15 +142,15 @@ namespace Flex_Highlighter
 
 
     [Export(typeof(EditorFormatDefinition))]
-    [ClassificationType(ClassificationTypeNames = "Escaped Character in Regex Group")]
-    [Name("Escaped Character in Regex Group")]
+    [ClassificationType(ClassificationTypeNames = "Regex Escaped Character in Regex Group")]
+    [Name("Regex Escaped Character in Regex Group")]
     [UserVisible(true)] // This should be visible to the end user
     [Order(After = Priority.High, Before = Priority.High)] // Set the priority to be after the default classifiers
     internal sealed class EscapedCharacterInRegexGroup : ClassificationFormatDefinition
     {
         public EscapedCharacterInRegexGroup()
         {
-            this.DisplayName = "Escaped Character in Regex Group"; // Human readable version of the name
+            this.DisplayName = "Regex Escaped Character in Regex Group"; // Human readable version of the name
             this.ForegroundColor = DefaultColors.EscapedCharacterForeground;
             this.BackgroundColor = DefaultColors.RegexGroupBackground;
         }
@@ -189,7 +189,7 @@ namespace Flex_Highlighter
     }
 
     [Export(typeof(EditorFormatDefinition))]
-    [ClassificationType(ClassificationTypeNames = "Escaped Character in Character Set")]
+    [ClassificationType(ClassificationTypeNames = "Regex Escaped Character in Character Set")]
     [Name("Escaped Character in Character Set")]
     [UserVisible(true)] // This should be visible to the end user
     [Order(After = Priority.High, Before = Priority.High)] // Set the priority to be after the default classifiers
@@ -197,7 +197,7 @@ namespace Flex_Highlighter
     {
         public EscapedCharacterInCharacterSet()
         {
-            this.DisplayName = "Escaped Character in Character Set"; // Human readable version of the name
+            this.DisplayName = "Regex Escaped Character in Character Set"; // Human readable version of the name
             this.ForegroundColor = DefaultColors.EscapedCharacterForeground;
             this.BackgroundColor = DefaultColors.RegexCharacterSetBackground;
         }
