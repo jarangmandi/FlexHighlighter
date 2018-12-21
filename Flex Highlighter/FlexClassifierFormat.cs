@@ -72,7 +72,7 @@ namespace Flex_Highlighter
         public RegexQuantifier()
         {
             this.DisplayName = "Regex Quantifier"; // Human readable version of the name
-            this.ForegroundColor = Colors.LightSkyBlue;
+            this.ForegroundColor = Color.FromRgb(0, 195, 195);
             this.BackgroundColor = Color.FromRgb((byte)(Colors.LightSkyBlue.R / 4), (byte)(Colors.LightSkyBlue.G / 4), (byte)(Colors.LightSkyBlue.B / 4));
         }
     }
@@ -90,7 +90,7 @@ namespace Flex_Highlighter
         public RegexGroup()
         {
             this.DisplayName = "Regex Group"; // Human readable version of the name
-            this.ForegroundColor = Color.FromRgb(100, 220, 2);
+            this.ForegroundColor = Color.FromRgb(83, 184, 2);
             this.BackgroundColor = DefaultColors.RegexGroupBackground;
         }
     }
@@ -156,7 +156,6 @@ namespace Flex_Highlighter
         }
     }
     #endregion
-
 
     #region Regex Character Set Classifiers
     [Export(typeof(EditorFormatDefinition))]
